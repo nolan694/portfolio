@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Présentation de Projet</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        @keyframes borderGlow {
+            0% { box-shadow: 0 0 0 0 rgba(255, 107, 0, 0.4); }
+            100% { box-shadow: 0 0 20px 10px rgba(255, 107, 0, 0); }
+        }
+        
+        .animate-fadeInUp {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
+        .animate-pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .animate-borderGlow {
+            animation: borderGlow 2s infinite alternate;
+        }
+        
+        .project-card {
+            transition: all 0.3s ease;
+            opacity: 0;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tech-badge:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(255, 107, 0, 0.3);
+        }
+        
+        .highlight {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: rgba(255, 107, 0, 0.3);
+            z-index: -1;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+        
+        .highlight:hover::after {
+            transform: scaleX(1);
+        }
+        
+        .icon-hover:hover {
+            transform: rotate(10deg) scale(1.1);
+            color: #FF6B00;
+        }
+        
+        .screenshot-container {
+            perspective: 1000px;
+        }
+        
+        .screenshot {
+            transition: transform 0.5s ease;
+            transform-style: preserve-3d;
+        }
+        
+        .screenshot:hover {
+            transform: rotateY(10deg) scale(1.03);
+        }
+    </style>
+</head>
+<body class="bg-[#111] text-gray-200">
+    <section class="py-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <h1 class="text-center text-4xl md:text-5xl font-bold mb-12">
+                Projet <span class="text-[#FF6B00] highlight">Application Web</span>
+            </h1>
+            <div class="mt-12 ml-4 sm:ml-8 text-left animate-fadeInUp">
+                <a href="../index.html" class="inline-flex items-center gap-2 bg-[#FF6B00] hover:bg-[#E55D00] text-black font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+                    <i class="fas fa-arrow-left"></i>
+                    Retour à l'accueil
+                </a>
+            </div>
+            <br>
+            
+            <!-- Présentation générale -->
+            <div class="project-card bg-[#1E1E1E] border-l-4 border-[#FF6B00] p-8 rounded-r-lg shadow-lg mb-12">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="bg-[#FF6B00] w-12 h-12 rounded-full flex items-center justify-center animate-pulse">
+                        <i class="fas fa-rocket text-black text-xl icon-hover transition-transform"></i>
+                    </div>
+                    <h2 class="text-[#FF6B00] text-2xl font-bold">Présentation du Projet</h2>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <p class="text-gray-300 leading-relaxed mb-6">
+                            Dans le cadre de mon BTS SIO option SLAM, j'ai développé une application web PHP mettant en évidence plusieurs failles de sécuritées comme Injection SQL, faille XSS, CSRF, Failles d’authentification, Directory traversal.                      </p>
+                        <div class="flex items-center gap-3 mb-4">
+                            <i class="fas fa-calendar-alt text-[#FF6B00]"></i>
+                            <span class="text-gray-300">Durée : 1 mois</span>
+                        </div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <i class="fas fa-users text-[#FF6B00]"></i>
+                            <span class="text-gray-300">Équipe : 1 développeur (moi meme)</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-info-circle text-[#FF6B00]"></i>
+                            <span class="text-gray-300">Statut : finalisé</span>
+                        </div>
+                    </div>
+                    <div class="screenshot-container">
+                        <img src="projet2.png" 
+                             alt="Capture d'écran du projet" 
+                             class="screenshot w-full h-auto rounded-lg border border-[#2A2A2A]">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Technologies utilisées -->
+<div class="project-card bg-[#1E1E1E] border-l-4 border-[#FF6B00] p-8 rounded-r-lg shadow-lg mb-12 animate-borderGlow">
+    <div class="flex items-center gap-4 mb-6">
+        <div class="bg-[#FF6B00] w-12 h-12 rounded-full flex items-center justify-center">
+            <i class="fas fa-bug text-black text-xl icon-hover transition-transform"></i>
+        </div>
+        <h2 class="text-[#FF6B00] text-2xl font-bold">Technologies Vulnérables</h2>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Colonne 1 -->
+        <div>
+            <!-- Langage serveur -->
+            <div class="mb-6 p-4 bg-[#2A2A2A] rounded-lg border-l-2 border-red-500">
+                <div class="flex items-center gap-3 mb-3">
+                    <i class="fab fa-php text-red-500 text-2xl"></i>
+                    <h3 class="text-lg font-bold text-white">PHP (sans framework)</h3>
+                </div>
+                <ul class="text-gray-300 text-sm space-y-2 pl-2">
+                    <li class="flex items-start gap-2">
+                        <i class="fas fa-exclamation-triangle text-red-400 mt-1"></i>
+                        Accès direct à $_GET/$_POST sans validation
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <i class="fas fa-exclamation-triangle text-red-400 mt-1"></i>
+                        Pas de PDO préparé (injection SQL possible)
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <i class="fas fa-exclamation-triangle text-red-400 mt-1"></i>
+                        Include dynamique (LFI/RFI)
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Base de données -->
+            <div class="mb-6 p-4 bg-[#2A2A2A] rounded-lg border-l-2 border-red-500">
+                <div class="flex items-center gap-3 mb-3">
+                    <i class="fas fa-database text-red-500 text-2xl"></i>
+                    <h3 class="text-lg font-bold text-white">MySQL/MariaDB</h3>
+                </div>
+                <ul class="text-gray-300 text-sm space-y-2 pl-2">
+                    <li class="flex items-start gap-2">
+                        <i class="fas fa-exclamation-triangle text-red-400 mt-1"></i>
+                        Requêtes SQL concaténées non sécurisées
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <i class="fas fa-exclamation-triangle text-red-400 mt-1"></i>
+                        Mots de passe en md5() ou clair
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <i class="fas fa-exclamation-triangle text-red-400 mt-1"></i>
+                        Pas de contrôle des permissions
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Front-end -->
+            <div class="p-4 bg-[#2A2A2A] rounded-lg border-l-2 border-red-500">
+                <div class="flex items-center gap-3 mb-3">
+                    <i class="fab fa-html5 text-red-500 text-2xl"></i>
+                    <h3 class="text-lg font-bold text-white">Front-end</h3>
+                </div>
+                <ul class="text-gray-300 text-sm space-y-2 pl-2">
+                    <li class="flex items-start gap-2">
+                        <i class="fas fa-exclamation-triangle text-red-400 mt-1"></i>
+                        Formulaires sans validation JS
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <i class="fas fa-exclamation-triangle text-red-400 mt-1"></i>
+                        Absence de CSP (XSS possible)
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <i class="fas fa-exclamation-triangle text-red-400 mt-1"></i>
+                        innerHTML non sécurisé
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Colonne 2 -->
+        <div>
+            <!-- Fichiers -->
+            <div class="mb-6 p-4 bg-[#2A2A2A] rounded-lg border-l-2 border-red-500">
+                <div class="flex items-center gap-3 mb-3">
+                    <i class="fas fa-file-upload text-red-500 text-2xl"></i>
+                    <h3 class="text-lg font-bold text-white">Gestion des fichiers</h3>
+                </div>
+                <ul class="text-gray-300 text-sm space-y-2 pl-2">
+                    <li class="flex items-start gap-2">
+                        <i class="fas fa-exclamation-triangle text-red-400 mt-1"></i>
+                        Upload sans vérification d'extension
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <i class="fas fa-exclamation-triangle text-red-400 mt-1"></i>
+                        Dossiers accessibles en exécution
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <i class="fas fa-exclamation-triangle text-red-400 mt-1"></i>
+                        Directory traversal possible
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- HTTP -->
+            <div class="mb-6 p-4 bg-[#2A2A2A] rounded-lg border-l-2 border-red-500">
+                <div class="flex items-center gap-3 mb-3">
+                    <i class="fas fa-globe text-red-500 text-2xl"></i>
+                    <h3 class="text-lg font-bold text-white">Communication HTTP</h3>
+                </div>
+                <ul class="text-gray-300 text-sm space-y-2 pl-2">
+                    <li class="flex items-start gap-2">
+                        <i class="fas fa-exclamation-triangle text-red-400 mt-1"></i>
+                        Pas de HTTPS (données en clair)
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <i class="fas fa-exclamation-triangle text-red-400 mt-1"></i>
+                        Headers de sécurité manquants
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <i class="fas fa-exclamation-triangle text-red-400 mt-1"></i>
+                        Cookies sans Secure/HttpOnly
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Authentification -->
+            <div class="p-4 bg-[#2A2A2A] rounded-lg border-l-2 border-red-500">
+                <div class="flex items-center gap-3 mb-3">
+                    <i class="fas fa-user-lock text-red-500 text-2xl"></i>
+                    <h3 class="text-lg font-bold text-white">Authentification</h3>
+                </div>
+                <ul class="text-gray-300 text-sm space-y-2 pl-2">
+                    <li class="flex items-start gap-2">
+                        <i class="fas fa-exclamation-triangle text-red-400 mt-1"></i>
+                        Pas de bcrypt (hash faible)
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <i class="fas fa-exclamation-triangle text-red-400 mt-1"></i>
+                        Sessions non régénérées
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <i class="fas fa-exclamation-triangle text-red-400 mt-1"></i>
+                        Brute-force possible
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="mt-8 bg-[#2A2A2A] p-4 rounded-lg border-l-4 border-yellow-500">
+        <div class="flex items-center gap-3">
+            <i class="fas fa-lightbulb text-yellow-400 text-xl"></i>
+            <h3 class="text-lg font-bold text-white">Bonnes pratiques à implémenter</h3>
+        </div>
+        <ul class="text-gray-300 mt-3 space-y-2 pl-2">
+            <li class="flex items-start gap-2">
+                <i class="fas fa-check-circle text-green-400 mt-1"></i>
+                Utiliser PDO avec requêtes préparées
+            </li>
+            <li class="flex items-start gap-2">
+                <i class="fas fa-check-circle text-green-400 mt-1"></i>
+                Implémenter password_hash()/password_verify()
+            </li>
+            <li class="flex items-start gap-2">
+                <i class="fas fa-check-circle text-green-400 mt-1"></i>
+                Ajouter Content-Security-Policy
+            </li>
+            <li class="flex items-start gap-2">
+                <i class="fas fa-check-circle text-green-400 mt-1"></i>
+                Valider/sanitizer toutes les entrées
+            </li>
+        </ul>
+    </div>
+</div>
+            
+           <!-- Résultats et perspectives -->
+<div class="project-card bg-[#1E1E1E] border-l-4 border-[#FF6B00] p-8 rounded-r-lg shadow-lg">
+    <div class="flex items-center gap-4 mb-6">
+        <div class="bg-[#FF6B00] w-12 h-12 rounded-full flex items-center justify-center">
+            <i class="fas fa-shield-alt text-black text-xl icon-hover transition-transform"></i>
+        </div>
+        <h2 class="text-[#FF6B00] text-2xl font-bold">Analyse Sécurité & Améliorations</h2>
+    </div>
+    <div class="grid md:grid-cols-2 gap-8">
+        <div>
+            <h3 class="text-xl font-semibold text-white mb-4">Vulnérabilités Identifiées</h3>
+            <div class="space-y-4">
+                <div class="flex items-start gap-3">
+        <div>
+            <ul class="space-y-3">
+                <li class="flex items-start gap-3">
+                    <i class="fas fa-shield-virus text-green-400 mt-1"></i>
+                    <span class="text-gray-300">Implémenter l'échappement XML et la validation XSD</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fas fa-shield-virus text-green-400 mt-1"></i>
+                    <span class="text-gray-300">Mise en place de htmlspecialchars() pour contrer XSS</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fas fa-shield-virus text-green-400 mt-1"></i>
+                    <span class="text-gray-300">Migration vers bcrypt pour le stockage mots de passe</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fas fa-shield-virus text-green-400 mt-1"></i>
+                    <span class="text-gray-300">Ajout de tokens CSRF sur les formulaires</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fas fa-shield-virus text-green-400 mt-1"></i>
+                    <span class="text-gray-300">Implémentation de Content-Security-Policy</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fas fa-shield-virus text-green-400 mt-1"></i>
+                    <span class="text-gray-300">Journalisation des activités suspectes</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+</div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <div class="mt-12 ml-4 sm:ml-8 text-left animate-fadeInUp">
+            <a href="../index.html" class="inline-flex items-center gap-2 bg-[#FF6B00] hover:bg-[#E55D00] text-black font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+                <i class="fas fa-arrow-left"></i>
+                Retour à l'accueil
+            </a>
+        </div>
+        
+        <!-- Floating elements -->
+        <div class="hidden lg:block">
+            <div class="absolute top-1/4 left-1/4 w-8 h-8 rounded-full bg-[#FF6B00] opacity-20 animate-float" style="animation-delay: 0.2s;"></div>
+            <div class="absolute bottom-1/3 right-1/3 w-12 h-12 rounded-full bg-[#FF6B00] opacity-10 animate-float" style="animation-delay: 0.5s;"></div>
+            <div class="absolute top-1/2 right-1/4 w-6 h-6 rounded-full bg-[#FF6B00] opacity-15 animate-float" style="animation-delay: 0.8s;"></div>
+        </div>
+    </section>
+
+    <script>
+        // Animation au scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const projectCards = document.querySelectorAll('.project-card');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.style.opacity = '1';
+                            entry.target.classList.add('animate-fadeInUp');
+                        }, index * 200);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            projectCards.forEach(card => {
+                observer.observe(card);
+            });
+            
+            // Effet de vague sur le titre
+            const title = document.querySelector('.highlight');
+            title.addEventListener('mouseover', () => {
+                title.classList.add('animate-pulse');
+            });
+            title.addEventListener('mouseout', () => {
+                title.classList.remove('animate-pulse');
+            });
+        });
+    </script>
+</body>
+</html>
